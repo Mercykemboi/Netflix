@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../Components/Header'
 import Banner from '../Components/Banner'
-import requests from '../utils/request'
+import requests from '../utils/requests'
 import {Movie} from '../typescript'
 interface Props{
   netflixOriginals: Movie[]
@@ -60,6 +60,7 @@ export const getServerSideProps = async() =>{
     horrorMovies,
     romanceMovies,
     documentaries,
+    // .all to complete all the fetch request
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
